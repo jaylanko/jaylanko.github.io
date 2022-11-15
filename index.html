@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARSHA</title>
+  </head>
+  <body>
+    <div class="navigation-bar" id="navigationBar">
+      <div class="logo-nav">
+        <h1>ARSHA</h1>
+      </div>
+      <div class="links-nav">
+        <ul id="links" class="links">
+          <li><a href="#homeGo" onclick="burgerToggler()">Home</a></li>
+          <li><a href="#aboutUs" onclick="burgerToggler()">About</a></li>
+          <li><a href="#serviceGo" onclick="burgerToggler()">Services</a></li>
+          <li><a href="#portfolioGo" onclick="burgerToggler()">Portfolio</a></li>
+          <li><a href="#teamGo" onclick="burgerToggler()">Team</a></li>
+          <li class="dropdown"><a href="" onclick="burgerToggler()">Drop Down</a>
+            <div class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+          </li>
+
+          <li><a href="#contactGo" onclick="burgerToggler()">Contact</a></li>
+          <button id="getStartedbtn">Get Started</button>
+        
+      </div>
+      <div class="burger">
+        <button id="btn-toggle" onclick="burgerToggler()">
+            <span id="span1"></span>
+            <span id="span2"></span>
+            <span id="span3"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="homeGo" class="home-page">
+      <div class="home-txt">
+        <h1>Better Solutions For Your Business</h1>
+        <h2>
+          We are team of talented designers making websites with Bootstrap
+        </h2>
+        <div class="icons">
+          <button id="homeStartbtn">Get Started</button>
+          <span id="icon-play"><i class="fa-regular fa-circle-play"></i></span>
+          <span id="watch">Watch Video</span>
+        </div>
+      </div>
+      <div class="home-picture">
+        <img src="images/hero-img.png" alt="" id="animated" />
+      </div>
+    </div>
+
+    <div class="brands">
+     <div class="mobile-1">
+        <div class="brand-1">
+            <img src="images/client-1.png" alt="" />
+          </div>
+          <div class="brand-2">
+            <img src="images/client-2.png" alt="" />
+          </div>
+     </div>
+     <div class="mobile-2">
+        <div class="brand-3">
+            <img src="images/client-3.png" alt="" />
+        </div>
+          <div class="brand-4">
+            <img src="images/client-4.png" alt="" />
+          </div>
+     </div>
+    <div class="mobile-3">
+        <div class="brand-5">
+            <img src="images/client-5.png" alt="" />
+        </div>
+          <div class="brand-6">
+            <img src="images/client-6.png" alt="" />
+          </div>
+    </div>
+   
+    </div>
+
+    <h1 id="aboutUs">ABOUT US</h1>
+    <div class="about">
+      <div class="about-1">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <span style="display: block"
+          ><i class="fa-solid fa-check-double"></i>Ullamco laboris nisi ut
+          aliquip ex ea commodo consequat</span
+        >
+        <span style="display: block"
+          ><i class="fa-solid fa-check-double"></i>Duis aute irure dolor in
+          reprehenderit in voluptate velit</span
+        >
+        <span style="display: block"
+          ><i class="fa-solid fa-check-double"></i>Ullamco laboris nisi ut
+          aliquip ex ea commodo consequat</span
+        >
+      </div>
+      <div class="about-2">
+        <p>
+          Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+          irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+          sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <button id="learnMorebtn">Learn More</button>
+      </div>
+    </div>
+
+    <div class="whyUs">
+      <div class="whyUs-1">
+        <h3 id="whyUsh3">
+          Eum ipsam laborum deleniti
+          <strong>velit pariatur architecto aut nihil</strong>
+        </h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute
+          irure dolor in reprehenderit
+        </p>
+
+        <div class="accordion">
+          <a href="javascript:addActive('AccordionElement1')">
+            <span>01</span>
+            Non consectetur a erat nam at lectus urna duis?
+            <i
+              style="float: right; display: none"
+              id="AccordionElement1up"
+              class="fa-solid fa-chevron-up accActive"
+            ></i>
+            <i
+              style="float: right; display: none"
+              id="AccordionElement1down"
+              class="fa-solid fa-chevron-down"
+            ></i>
+          </a>
+          <div id="AccordionElement1" style="display: none">
+            Dolor sit amet consectetur adipiscing elit pellentesque habitant
+            morbi. Id interdum velit laoreet id donec ultrices. Fringilla
+            phasellus faucibus scelerisque eleifend donec pretium. Est
+            pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
+            cursus turpis massa tincidunt dui.
+          </div>
+        </div>
+        <div class="accordion">
+          <a href="javascript:addActive('AccordionElement2')">
+            <span>02</span>
+            Non consectetur a erat nam at lectus urna duis?
+            <i
+              style="float: right; display: none"
+              id="AccordionElement2up"
+              class="fa-solid fa-chevron-up accActive"
+            ></i>
+            <i
+              style="float: right; display: none"
+              id="AccordionElement2down"
+              class="fa-solid fa-chevron-down"
+            ></i>
+          </a>
+          <div id="AccordionElement2" style="display: none">
+            Dolor sit amet consectetur adipiscing elit pellentesque habitant
+            morbi. Id interdum velit laoreet id donec ultrices. Fringilla
+            phasellus faucibus scelerisque eleifend donec pretium. Est
+            pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
+            cursus turpis massa tincidunt dui.
+          </div>
+        </div>
+        <div id="marg" class="accordion">
+          <a href="javascript:addActive('AccordionElement3')">
+            <span>03</span>
+            Non consectetur a erat nam at lectus urna duis?
+            <i
+              style="float: right; display: none"
+              id="AccordionElement3up"
+              class="fa-solid fa-chevron-up accActive"
+            ></i>
+            <i
+              style="float: right; display: none"
+              id="AccordionElement3down"
+              class="fa-solid fa-chevron-down"
+            ></i>
+          </a>
+          <div id="AccordionElement3" style="display: none">
+            Dolor sit amet consectetur adipiscing elit pellentesque habitant
+            morbi. Id interdum velit laoreet id donec ultrices. Fringilla
+            phasellus faucibus scelerisque eleifend donec pretium. Est
+            pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
+            cursus turpis massa tincidunt dui.
+          </div>
+        </div>
+      </div>
+      <div class="whyUs-2">
+        <img src="images/why-us.png" alt="" />
+      </div>
+    </div>
+    <div class="skills">
+      <div class="skills-picture">
+        <img src="images/skills.png" alt="" />
+      </div>
+      <div class="skills-stats">
+        <h3>Voluptatem dignissimos provident quasi corporis voluptates</h3>
+        <p><i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</i></p>
+        <div class="progress">
+            <span class="skill">
+                HTML
+                <i class="value">100%</i>
+            </span>
+            <div class="progress-first">
+                <div class="progress-bar" style="width: 100%;"></div>
+            </div>
+        </div>
+        <div class="progress">
+            <span class="skill">
+                CSS
+                <i class="value">90%</i>
+            </span>
+            <div class="progress-first">
+                <div class="progress-bar" style="width: 90%;"></div>
+            </div>
+        </div>
+        <div class="progress">
+            <span class="skill">
+                JAVASCRIPT
+                <i class="value">75%</i>
+            </span>
+            <div class="progress-first">
+                <div class="progress-bar" style="width: 75%;"></div>
+            </div>
+        </div>
+        <div class="progress">
+            <span class="skill">
+                PHOTOSHOP
+                <i class="value">55%</i>
+            </span>
+            <div class="progress-first">
+                <div class="progress-bar" style="width: 55%;"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="serviceGo" class="services">
+       <div class="title">
+        <h1 id="service">SERVICES</h1>
+        <p id="servp">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+       </div>
+       <div class="boxes">
+        <div class="box-1">
+            <div class="icon">
+             <i class="fa-brands fa-dribbble"></i>
+            </div>
+            <h4><a href="">Lorem Ipsum</a></h4>
+            <p style="text-align: left; margin-top: -5px; font-weight: 100;">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+        </div>
+        <div class="box-1">
+            <div class="icon">
+                <i class="fa-regular fa-file-code"></i>
+            </div>
+            <h4><a href="">Sed ut perspici</a></h4>
+            <p style="text-align: left; margin-top: -5px; font-weight: 100;">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+        </div>
+        <div class="box-1">
+            <div class="icon">
+                <i class="fa-solid fa-gauge-high"></i>
+            </div>
+            <h4><a href="">Magni Dolores</a></h4>
+            <p style="text-align: left; margin-top: -5px; font-weight: 100;">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+        </div>
+        <div class="box-1">
+            <div class="icon">
+                <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <h4><a href="">Nemo Enim</a></h4>
+            <p style="text-align: left; margin-top: -5px; font-weight: 100;">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+        </div>
+       </div>
+    </div>
+
+    <div class="action">
+        <div class="action-txt">
+            <h3>Call to Action</h3>
+            <p style="color: #fff; margin-top: 0;
+            margin-bottom: 1rem;"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="action-btn">
+            <button id="action-button">Call to Action</button>
+        </div>
+    </div>
+
+    <h1 id="service">PORTFOLIO</h1>
+        <p id="servp">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <div id="portfolioGo" class="pill-links">
+            <ul>
+                <li><a id="tab1" href="javascript:galleryFilter('tab1')" class="active">All</a></li>
+                <li><a id="tab2" href="javascript:galleryFilter('tab2')">App</a></li>
+                <li><a id="tab3" href="javascript:galleryFilter('tab3')">Card</a></li>
+                <li><a id="tab4" href="javascript:galleryFilter('tab4')">Web</a></li>
+            </ul>
+        </div>
+        <div class="portfolio">
+            <div class="grid1">
+                <div class="pic tab2">
+                    <div class="block">
+                        
+                    </div> 
+                <img src="images/portfolio-1.jpg" alt="">
+                </div>
+                <div class="pic tab2">
+                    <div class="block">
+                        
+                    </div>
+                    <img src="images/portfolio-6.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid1">
+                <div class="pic tab3">
+                    <div class="block">
+    
+                    </div>
+                    <img src="images/portfolio-2.jpg" alt="">
+                </div>
+                <div class="pic tab2">
+                    <div class="block">
+                        
+                    </div>
+    <img src="images/portfolio-5.jpg" alt="" srcset="">
+                </div>
+                <div class="pic tab3">
+                    <div class="block">
+                        
+                    </div>
+    <img src="images/portfolio-9.jpg" alt="" srcset="">
+                </div>
+            </div>
+            <div class="grid1">
+                <div class="pic tab4">
+                    <div class="block">
+                        
+                    </div>
+                    <img src="images/portfolio-3.jpg" alt="">
+                </div>
+                <div class="pic tab4">
+                    <div class="block">
+                        
+                    </div>
+                    <img src="images/portfolio-4.jpg" alt="">
+                </div>
+                <div class="pic tab4">
+                    <div class="block">
+                        
+                    </div>
+                    <img src="images/portfolio-7.jpg" alt="">
+                </div>
+                <div class="pic tab4">
+                    <div class="block">
+                        
+                    </div>
+                    <img src="images/portfolio-8.jpg" alt="">
+                </div>
+            </div>
+            </div>
+        </div>
+
+       
+
+        <div id="teamGo" class="team">
+            <h1 id="service">TEAM</h1>
+            <p id="servp" style="margin-bottom: 30px;">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <div class="team-1">
+                <div class="team-11">
+                    <div class="team-pic">
+                        <img class="teampics" src="images/team-1.jpg" alt="">
+                    </div>
+                    <div class="team-txt">
+                        <h4>Walter White</h4>
+                        <span>Chief Executive Officer</span>
+                        <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+                        <div class="social-team">
+                            <a href=""><i class="fa-brands fa-skype"></i></a>
+                            <a href=""><i class="fa-brands fa-facebook"></i></a>
+                            <a href=""><i class="fa-brands fa-square-instagram"></i></a>
+                            <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-11">
+                    <div class="team-pic">
+                        <img class="teampics" src="images/team-2.jpg" alt="">
+                    </div>
+                    <div class="team-txt">
+                        <h4>Sarah Jhonson</h4>
+                        <span>Product Manager</span>
+                        <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
+                        <div class="social-team2">
+                            <a href=""><i class="fa-brands fa-skype"></i></a>
+                            <a href=""><i class="fa-brands fa-facebook"></i></a>
+                            <a href=""><i class="fa-brands fa-square-instagram"></i></a>
+                            <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="team-2">
+                <div class="team-12">
+                    <div class="team-pic">
+                        <img class="teampics" src="images/team-3.jpg" alt="">
+                    </div>
+                    <div class="team-txt">
+                        <h4>William Anderson</h4>
+                        <span>CTO</span>
+                        <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
+                        <div class="social-team3">
+                            <a href=""><i class="fa-brands fa-skype"></i></a>
+                            <a href=""><i class="fa-brands fa-facebook"></i></a>
+                            <a href=""><i class="fa-brands fa-square-instagram"></i></a>
+                            <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-12">
+                    <div class="team-pic">
+                        <img class="teampics" src="images/team-4.jpg" alt="">
+                    </div>
+                    <div class="team-txt">
+                        <h4>Amanda Jepson</h4>
+                        <span>Accountant</span>
+                        <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
+                        <div class="social-team4">
+                            <a href=""><i class="fa-brands fa-skype"></i></a>
+                            <a href=""><i class="fa-brands fa-facebook"></i></a>
+                            <a href=""><i class="fa-brands fa-square-instagram"></i></a>
+                            <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 id="service">PRICING</h1>
+        <p id="servp">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+
+        <div id="pricingGo" class="pricing">
+            <div class="pricing-1">
+                <h3>Free Plan</h3>
+                <h4>
+                    <sup>$</sup>
+                    0
+                    <span>per month</span>
+                </h4>
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Quam adipiscing vitae proin
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Nec feugiat nisl pretium
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Nulla at volutpat diam uteera
+                    </li>
+                    <li class="wrong">
+                        <i style="color: #999;" class="fa-solid fa-xmark"></i>
+                        <span style="text-decoration: line-through;">Massa ultricies mi quis hendrerit</span>
+                    </li>
+                    <li class="wrong">
+                        <i style="color: #999;" class="fa-solid fa-xmark"></i>
+                        <span style="text-decoration:line-through;">Massa ultricies mi quis hendrerit</span>
+                    </li>
+                </ul>
+                <a href="#" class="buy-btn">Get Started</a>
+            </div>
+            <div class="pricing-2">
+                <h3>Business Plan</h3>
+                <h4>
+                    <sup>$</sup>
+                    29
+                    <span>per month</span>
+                </h4>
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Quam adipiscing vitae proin
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Nec feugiat nisl pretium
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Nulla at volutpat diam uteera
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Pharetra massa massa ultricies
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Massa ultricies mi quis hendrerit
+                    </li>
+                    
+                </ul>
+                <a href="#" class="buy-btn-ac">Get Started</a>
+            </div>
+            <div class="pricing-3">
+                <h3>Developer Plan</h3>
+                <h4>
+                    <sup>$</sup>
+                    49
+                    <span>per month</span>
+                </h4>
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Quam adipiscing vitae proin
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Nec feugiat nisl pretium
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Nulla at volutpat diam uteera
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Pharetra massa massa ultricies
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Massa ultricies mi quis hendrerit
+                    </li>
+                </ul>
+                <a href="#" class="buy-btn">Get Started</a>
+            </div>
+        </div>
+
+        <div class="faq">
+            <h1 id="service">FREQUENTLY ASKED QUESTIONS</h1>
+            <p id="servp">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+
+            <div class="accordion-faq">
+                <a href="javascript:addActive('AccordionElementFaq1')">
+                  <span><i class="fa-regular fa-circle-question"></i></span>
+                  Non consectetur a erat nam at lectus urna duis?
+                  <i
+                    style="float: right; display: none"
+                    id="AccordionElement1up"
+                    class="fa-solid fa-chevron-up accActive"
+                  ></i>
+                  <i
+                    style="float: right; display: none"
+                    id="AccordionElement1down"
+                    class="fa-solid fa-chevron-down"
+                  ></i>
+                </a>
+                <div id="AccordionElementFaq1" style="display: none">
+                  Dolor sit amet consectetur adipiscing elit pellentesque habitant
+                  morbi. Id interdum velit laoreet id donec ultrices. Fringilla
+                  phasellus faucibus scelerisque eleifend donec pretium. Est
+                  pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
+                  cursus turpis massa tincidunt dui.
+                </div>
+              </div>
+              <div class="accordion-faq">
+                <a href="javascript:addActive('AccordionElementFaq2')">
+                  <span><i class="fa-regular fa-circle-question"></i></span>
+                  Feugiat scelerisque varius morbi enim nunc? 
+                  <i
+                    style="float: right; display: none"
+                    id="AccordionElement2up"
+                    class="fa-solid fa-chevron-up accActive"
+                  ></i>
+                  <i
+                    style="float: right; display: none"
+                    id="AccordionElement2down"
+                    class="fa-solid fa-chevron-down"
+                  ></i>
+                </a>
+                <div id="AccordionElementFaq2" style="display: none">
+                  Dolor sit amet consectetur adipiscing elit pellentesque habitant
+                  morbi. Id interdum velit laoreet id donec ultrices. Fringilla
+                  phasellus faucibus scelerisque eleifend donec pretium. Est
+                  pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
+                  cursus turpis massa tincidunt dui.
+                </div>
+              </div>
+              <div  class="accordion-faq">
+                <a href="javascript:addActive('AccordionElementFaq3')">
+                  <span><i class="fa-regular fa-circle-question"></i></span>
+                  Dolor sit amet consectetur adipiscing elit? 
+                  <i
+                    style="float: right; display: none"
+                    id="AccordionElement3up"
+                    class="fa-solid fa-chevron-up accActive"
+                  ></i>
+                  <i
+                    style="float: right; display: none"
+                    id="AccordionElement3down"
+                    class="fa-solid fa-chevron-down"
+                  ></i>
+                </a>
+                <div id="AccordionElementFaq3" style="display: none">
+                  Dolor sit amet consectetur adipiscing elit pellentesque habitant
+                  morbi. Id interdum velit laoreet id donec ultrices. Fringilla
+                  phasellus faucibus scelerisque eleifend donec pretium. Est
+                  pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
+                  cursus turpis massa tincidunt dui.
+                </div>
+               </div>
+               <div class="accordion-faq">
+                <a href="javascript:addActive('AccordionElementFaq4')">
+                  <span><i class="fa-regular fa-circle-question"></i></span>
+                  Tempus quam pellentesque nec nam aliquam sem et tortor consequat? 
+                  <i
+                    style="float: right; display: none"
+                    id="AccordionElement2up"
+                    class="fa-solid fa-chevron-up accActive"
+                  ></i>
+                  <i
+                    style="float: right; display: none"
+                    id="AccordionElement2down"
+                    class="fa-solid fa-chevron-down"
+                  ></i>
+                </a>
+                <div id="AccordionElementFaq4" style="display: none">
+                  Dolor sit amet consectetur adipiscing elit pellentesque habitant
+                  morbi. Id interdum velit laoreet id donec ultrices. Fringilla
+                  phasellus faucibus scelerisque eleifend donec pretium. Est
+                  pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
+                  cursus turpis massa tincidunt dui.
+                </div>
+              </div>
+              <div id="marg" class="accordion-faq">
+                <a href="javascript:addActive('AccordionElementFaq5')">
+                  <span><i class="fa-regular fa-circle-question"></i></span>
+                  Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? 
+                  <i
+                    style="float: right; display: none"
+                    id="AccordionElement2up"
+                    class="fa-solid fa-chevron-up accActive"
+                  ></i>
+                  <i
+                    style="float: right; display: none"
+                    id="AccordionElement2down"
+                    class="fa-solid fa-chevron-down"
+                  ></i>
+                </a>
+                <div id="AccordionElementFaq5" style="display: none">
+                  Dolor sit amet consectetur adipiscing elit pellentesque habitant
+                  morbi. Id interdum velit laoreet id donec ultrices. Fringilla
+                  phasellus faucibus scelerisque eleifend donec pretium. Est
+                  pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
+                  cursus turpis massa tincidunt dui.
+                </div>
+              </div>
+        </div>
+
+        <h1 id="service">CONTACT</h1>
+            <p id="servp">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+
+            <div id="contactGo" class="contact">
+                <div class="contact-info">
+                    <div class="address">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <h4>Location:</h4>
+                        <p>A108 Adam Street, New York, NY 535022</p>
+                    </div>
+                    <div class="email">
+                        <i class="fa-solid fa-envelope"></i>
+                        <h4>Email:</h4>
+                        <p>info@example.com</p>
+                    </div>
+                    <div class="phone">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                        <h4>Call:</h4>
+                        <p>+1 5589 55488 55</p>
+                    </div>
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2964.3078071823275!2d21.429014515578622!3d42.01512877921142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135415ae6b03a9cd%3A0xb50a20302bcbdeab!2sInternational%20Balkan%20University!5e0!3m2!1sen!2smk!4v1667567196888!5m2!1sen!2smk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <div class="form-1row">
+                        <div class="form-1row1">
+                            <label for="">Your Name</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-1row2">
+                            <label for="">Your Email</label>
+                            <input type="email">
+                        </div>
+                    </div>
+                    <div class="subject">
+                        <label for="">Subject</label>
+                        <input type="text">
+                    </div>
+                    <div class="message">
+                        <label for="">Message</label>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="btn-center">
+                        <button type="submit">Send Message</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="newsletter">
+                <h4>Join our Newsletter</h4>
+                <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                <form action="">
+                    <input type="email" name="" id="">
+                    <input type="submit" value="Subscribe">
+                </form>
+            </div>
+
+            <div class="footer-top">
+                <div class="foot1">
+                    <h4>ARSHA</h4>
+                    <p><br> A108 Adam Street  New York, NY 535022<br> United States <br><br> <strong>Phone:</strong> +1 5589 55488 55<br> <strong>Email:</strong> info@example.com<br></p>
+                </div>
+                <div class="foot2">
+                    <h4>Useful Links</h4>
+<ul>
+    <li><i class="fa-solid fa-chevron-right"></i> <a href="#">Home</a></li>
+    <li><i class="fa-solid fa-chevron-right"></i> <a href="#">About us</a></li>
+    <li><i class="fa-solid fa-chevron-right"></i><a href="#">Services</a></li>
+    <li><i class="fa-solid fa-chevron-right"></i> <a href="#">Terms of service</a></li>
+    <li><i class="fa-solid fa-chevron-right"></i> <a href="#">Privacy policy</a></li></ul>
+                </div>
+                <div class="foot3">
+                    <h4>Our Services</h4>
+<ul>
+    <li><i class="fa-solid fa-chevron-right"></i> <a href="#">Web Design</a></li>
+    <li><i class="fa-solid fa-chevron-right"></i> <a href="#">Web Development</a></li>
+    <li><i class="fa-solid fa-chevron-right"></i><a href="#">Product Management</a></li>
+    <li><i class="fa-solid fa-chevron-right"></i> <a href="#">Marketing</a></li>
+    <li><i class="fa-solid fa-chevron-right"></i> <a href="#">Graphic Design</a></li></ul>
+                </div>
+                <div class="foot4">
+                    <h4>Our Social Networks</h4>
+<p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+<div class="social-foot">
+    <a href=""><i class="fa-brands fa-twitter"></i></a>
+    <a href=""><i class="fa-brands fa-facebook"></i></a>
+    <a href=""><i class="fa-brands fa-instagram"></i></a>
+    <a href=""><i class="fa-brands fa-skype"></i></a>
+    <a href=""><i class="fa-brands fa-linkedin"></i></a>
+</div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="copyright">
+                    © Copyright 
+                    <strong><span>Arsha</span></strong>
+                    . All Rights Reserved
+                </div>
+                <div class="designed">
+                    Designed by 
+                    <a href="https://bootstrapmade.com/">Dzejlan</a>
+                </div>
+            </div>
+  </body>
+</html>
