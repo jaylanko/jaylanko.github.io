@@ -1,1 +1,0 @@
-# jaylanko.github.io
