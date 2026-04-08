@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bs">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Captured by Jlan — Photography</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Helvetica+Neue:wght@100;300;400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -38,7 +37,7 @@
       pointer-events: none;
       z-index: 9999;
       transform: translate(-50%, -50%);
-      transition: transform 0.1s, width 0.2s, height 0.2s, background 0.2s;
+      transition: width 0.2s, height 0.2s, background 0.2s;
     }
     .cursor-ring {
       position: fixed;
@@ -48,7 +47,7 @@
       pointer-events: none;
       z-index: 9998;
       transform: translate(-50%, -50%);
-      transition: transform 0.15s ease-out, width 0.25s, height 0.25s, border-color 0.25s;
+      transition: width 0.25s, height 0.25s, border-color 0.25s;
     }
     .cursor.hover { width: 12px; height: 12px; background: var(--mid); }
     .cursor-ring.hover { width: 56px; height: 56px; border-color: rgba(245,244,240,0.15); }
@@ -68,7 +67,7 @@
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 100;
+      z-index: 500;
       padding: 2rem 3rem;
       display: flex;
       justify-content: space-between;
@@ -184,25 +183,11 @@
       overflow: hidden;
     }
 
-    /* Simulated photo with CSS */
     .hero-image-placeholder::before {
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 30%, #1a1a1a 50%, #222 70%, #0f0f0f 100%);
-    }
-
-    .hero-image-placeholder::after {
-      content: 'CAPTURED\ABY JLAN';
-      white-space: pre;
-      position: absolute;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.5rem;
-      letter-spacing: 0.4em;
-      color: rgba(255,255,255,0.07);
-      text-align: center;
-      line-height: 3;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 30%, #1a1a1a 50%, #222 70%, #0f0f0f 100%);
     }
 
     .hero-image-art {
@@ -238,116 +223,12 @@
       border-radius: 50%;
     }
 
-    .hero-scroll {
-      position: absolute;
-      bottom: 3rem;
-      left: 3rem;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.55rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--mid);
-      writing-mode: vertical-rl;
-      opacity: 0;
-      animation: fadeIn 1s ease forwards 2s;
-    }
-
-    .hero-scroll::after {
-      content: '';
-      display: block;
-      width: 1px;
-      height: 40px;
-      background: var(--mid);
-      margin: 1rem auto 0;
-      animation: scrollLine 2s ease-in-out infinite 2.5s;
-    }
-
-    .hero-num {
-      position: absolute;
-      bottom: 3rem;
-      right: 3rem;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.6rem;
-      color: var(--mid);
-      letter-spacing: 0.1em;
-      opacity: 0;
-      animation: fadeIn 1s ease forwards 1.8s;
-    }
-
     /* DIVIDER */
     .divider {
       height: 1px;
       background: var(--grey);
       margin: 0 3rem;
       opacity: 0.3;
-    }
-
-    /* ABOUT */
-    .about {
-      padding: 8rem 3rem;
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 6rem;
-      align-items: start;
-    }
-
-    .section-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--mid);
-      padding-top: 0.4rem;
-    }
-
-    .about-content h2 {
-      font-size: clamp(2.5rem, 4vw, 4.5rem);
-      font-weight: 300;
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-      margin-bottom: 2.5rem;
-    }
-
-    .about-content h2 em { font-style: italic; }
-
-    .about-content p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--mid);
-      font-weight: 300;
-      max-width: 560px;
-      margin-bottom: 1.5rem;
-    }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      margin-top: 4rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-left: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .stat {
-      padding: 2rem;
-      border-right: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .stat-num {
-      font-size: 2.8rem;
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.3rem;
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.55rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--mid);
     }
 
     /* SERVICES */
@@ -366,6 +247,15 @@
       font-size: clamp(2.5rem, 4vw, 4rem);
       font-weight: 300;
       letter-spacing: -0.01em;
+    }
+
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--mid);
+      padding-top: 0.4rem;
     }
 
     .services-grid {
@@ -425,65 +315,55 @@
       transform: translate(0, 0);
     }
 
-    /* PORTFOLIO STRIP */
-    .portfolio {
-      padding: 6rem 0;
-      overflow: hidden;
-    }
+    /* PORTFOLIO */
+    .portfolio { padding: 6rem 0; }
 
     .portfolio-header {
-      padding: 0 3rem;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       margin-bottom: 3rem;
+      padding: 0 3rem;
     }
 
     .portfolio-header h2 {
       font-size: clamp(2.5rem, 4vw, 4rem);
       font-weight: 300;
+      letter-spacing: -0.01em;
     }
 
-    .portfolio-strip {
-      display: flex;
-      gap: 1.5rem;
-      padding: 0 3rem;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
     }
-
-    .portfolio-strip::-webkit-scrollbar { display: none; }
 
     .portfolio-item {
-      flex: 0 0 320px;
-      height: 420px;
-      background: var(--grey);
       position: relative;
       overflow: hidden;
-      cursor: none;
+      cursor: pointer;
+      aspect-ratio: 3/4;
+      background: var(--grey);
     }
 
-    .portfolio-item::before {
-      content: '';
-      position: absolute;
-      inset: 0;
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      display: block;
     }
 
-    .portfolio-item:nth-child(1)::before { background: linear-gradient(160deg, #1c1c1c, #2a2a2a); }
-    .portfolio-item:nth-child(2)::before { background: linear-gradient(200deg, #141414, #232323); }
-    .portfolio-item:nth-child(3)::before { background: linear-gradient(140deg, #1e1e1e, #2d2d2d); }
-    .portfolio-item:nth-child(4)::before { background: linear-gradient(170deg, #191919, #262626); }
-    .portfolio-item:nth-child(5)::before { background: linear-gradient(150deg, #161616, #242424); }
-
-    .portfolio-item:hover::before { transform: scale(1.04); }
+    .portfolio-item:hover img { transform: scale(1.06); }
 
     .portfolio-item-label {
       position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 2rem 1.5rem 1.5rem;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 3rem 1.5rem 1.2rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
@@ -495,80 +375,71 @@
 
     .portfolio-cat {
       font-family: 'Space Mono', monospace;
-      font-size: 0.55rem;
+      font-size: 0.5rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--light);
+      color: rgba(255,255,255,0.85);
     }
 
-    /* SKILLS / APPROACH */
-    .approach {
-      padding: 8rem 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8rem;
-    }
-
-    .approach-left h2 {
-      font-size: clamp(2.5rem, 4vw, 4rem);
-      font-weight: 300;
-      line-height: 1.1;
-      margin-bottom: 2.5rem;
-    }
-
-    .approach-left p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: var(--mid);
-      font-weight: 300;
-    }
-
-    .skills-list {
-      list-style: none;
-      padding-top: 1rem;
-    }
-
-    .skill-item {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 1.8rem 0;
-      display: flex;
-      justify-content: space-between;
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.94);
+      z-index: 9000;
       align-items: center;
+      justify-content: center;
+      padding: 2rem;
     }
 
-    .skill-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .lightbox.active { display: flex; }
 
-    .skill-name {
-      font-size: 1.2rem;
-      font-weight: 300;
+    .lightbox-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .skill-level {
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2.5rem;
+      font-size: 2rem;
+      color: var(--mid);
+      cursor: none;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .lightbox-close:hover { color: var(--white); }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--mid);
+      cursor: none;
+      padding: 1rem;
+      transition: color 0.2s;
+    }
+    .lightbox-nav:hover { color: var(--white); }
+    .lightbox-prev { left: 1.5rem; }
+    .lightbox-next { right: 1.5rem; }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: 'Space Mono', monospace;
       font-size: 0.55rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      letter-spacing: 0.3em;
       color: var(--mid);
     }
-
-    .skill-bar-track {
-      width: 80px;
-      height: 1px;
-      background: rgba(255,255,255,0.1);
-      position: relative;
-      margin-left: 2rem;
-    }
-
-    .skill-bar-fill {
-      position: absolute;
-      top: 0; left: 0; height: 100%;
-      background: var(--white);
-      transform-origin: left;
-      transform: scaleX(0);
-      transition: transform 1s ease;
-    }
-
-    .skill-bar-fill.visible { transform: scaleX(1); }
 
     /* CONTACT */
     .contact {
@@ -584,13 +455,13 @@
       font-weight: 300;
       line-height: 0.95;
       letter-spacing: -0.02em;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
 
     .contact-left h2 em { font-style: italic; }
 
     .contact-detail {
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
 
     .contact-detail-label {
@@ -608,62 +479,46 @@
       color: var(--white);
     }
 
-    .contact-form { display: flex; flex-direction: column; gap: 0; }
-
-    .form-field {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 1.5rem 0;
-    }
-
-    .form-field label {
-      display: block;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.55rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-bottom: 0.8rem;
-    }
-
-    .form-field input,
-    .form-field textarea {
-      width: 100%;
-      background: transparent;
-      border: none;
-      outline: none;
+    .contact-detail-value a {
       color: var(--white);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact-detail-value a:hover { color: var(--light); }
+
+    /* CONTACT RIGHT - CTA */
+    .contact-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-bottom: 1rem;
+    }
+
+    .contact-cta {
+      font-size: clamp(1rem, 1.5vw, 1.3rem);
+      line-height: 1.8;
+      color: var(--mid);
       font-weight: 300;
-      resize: none;
+      margin-bottom: 3rem;
     }
 
-    .form-field textarea { min-height: 80px; }
-
-    .form-field input::placeholder,
-    .form-field textarea::placeholder {
-      color: rgba(255,255,255,0.15);
-    }
-
-    .submit-btn {
-      margin-top: 2.5rem;
-      padding: 1.2rem 3rem;
-      background: var(--white);
-      color: var(--black);
-      border: none;
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
       font-family: 'Space Mono', monospace;
       font-size: 0.65rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      cursor: none;
-      align-self: flex-start;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .submit-btn:hover {
-      background: transparent;
       color: var(--white);
-      box-shadow: inset 0 0 0 1px var(--white);
+      text-decoration: none;
+      padding: 1.2rem 2.5rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .cta-link:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.5);
     }
 
     /* FOOTER */
@@ -724,11 +579,6 @@
       to { transform: rotate(360deg); }
     }
 
-    @keyframes scrollLine {
-      0%, 100% { opacity: 0.3; transform: scaleY(1); }
-      50% { opacity: 1; transform: scaleY(1.5); }
-    }
-
     /* SCROLL REVEAL */
     .reveal {
       opacity: 0;
@@ -742,22 +592,24 @@
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
-      nav { padding: 1.5rem 1.5rem; }
+      body { cursor: auto; }
+      .cursor, .cursor-ring { display: none; }
+      nav { padding: 1.5rem; }
       .nav-links { gap: 1.5rem; }
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-left { padding: 7rem 1.5rem 3rem; }
       .hero-right { height: 60vw; }
-      .about { grid-template-columns: 1fr; gap: 2rem; padding: 5rem 1.5rem; }
-      .about-stats { grid-template-columns: repeat(3, 1fr); }
       .services { padding: 5rem 1.5rem; }
       .services-grid { grid-template-columns: 1fr; }
       .portfolio-header { padding: 0 1.5rem; }
-      .portfolio-strip { padding: 0 1.5rem; }
-      .approach { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
       .contact { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
       footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
-      .hero-scroll { display: none; }
-      .hero-num { display: none; }
+      .divider { margin: 0 1.5rem; }
+    }
+
+    @media (max-width: 500px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -766,28 +618,25 @@
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- NAV -->
   <nav>
     <a class="nav-logo" href="#">Captured by Jlan</a>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#services">USLUGE</a></li>
+      <li><a href="#work">RAD</a></li>
+      <li><a href="#contact">KONTAKT</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
-      <p class="hero-tag">Photography Portfolio — Est. 2024</p>
+      <p class="hero-tag">Photography Portfolio — Est. 2019</p>
       <h1 class="hero-title">
         <span class="line"><span>Cap&shy;tured</span></span>
         <span class="line"><span>by</span></span>
         <span class="line"><span>Jlan.</span></span>
       </h1>
       <p class="hero-desc">
-        Light, shadow, and everything in between. Visual storytelling crafted for those who understand that a single frame holds infinite depth.
+        Između svjetla i sjene nastaju priče. Fotografije za ljude koji osjećaju da svaki kadar krije nešto dublje.
       </p>
     </div>
     <div class="hero-right">
@@ -800,238 +649,188 @@
         </div>
       </div>
     </div>
-    <div class="hero-scroll">Scroll</div>
-    <div class="hero-num">001 / 005</div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="section-label reveal">About</div>
-    <div class="about-content">
-      <h2 class="reveal">The art of seeing <em>the unseen</em></h2>
-      <p class="reveal">Captured by Jlan is a photography practice built on the belief that the most powerful images live in the spaces between — between movement and stillness, light and dark, intention and accident.</p>
-      <p class="reveal">Based in Montenegro, working worldwide. Every project is approached as a collaboration, with the goal of creating images that outlast the moment.</p>
-      <div class="about-stats reveal">
-        <div class="stat">
-          <div class="stat-num">150+</div>
-          <div class="stat-label">Projects</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">5+</div>
-          <div class="stat-label">Years</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">12</div>
-          <div class="stat-label">Countries</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- SERVICES -->
   <section class="services" id="services">
     <div class="services-header reveal">
-      <h2>What I do</h2>
-      <div class="section-label">Services</div>
+      <h2>Usluge</h2>
+      <div class="section-label">USLUGE</div>
     </div>
     <div class="services-grid">
       <div class="service-card reveal">
         <div class="service-num">01</div>
-        <h3 class="service-title">Portrait & Editorial</h3>
-        <p class="service-desc">Intimate portraits that reveal character. From magazine editorials to personal sessions — images built around genuine moments.</p>
+        <h3 class="service-title">Maturske i porodične fotografije</h3>
+        <p class="service-desc">Zabeležavam posebne trenutke sa maturskih proslava, rođendana i porodičnih okupljanja. Svaka fotografija nastaje iz spontanih i iskrenih trenutaka.</p>
         <span class="service-arrow">↗</span>
       </div>
       <div class="service-card reveal">
         <div class="service-num">02</div>
-        <h3 class="service-title">Commercial & Brand</h3>
-        <p class="service-desc">Visual identity through photography. Product, campaign, and brand imagery created with intention and precision.</p>
+        <h3 class="service-title">Babine veselja i proslave</h3>
+        <p class="service-desc">Fotografisanje tradicije i veselja — od babinih okupljanja do svakog važnog trenutka sa prijateljima i porodicom.</p>
         <span class="service-arrow">↗</span>
       </div>
       <div class="service-card reveal">
         <div class="service-num">03</div>
-        <h3 class="service-title">Events & Documentary</h3>
-        <p class="service-desc">Unscripted, unposed — real moments preserved. Weddings, cultural events, and live experiences captured as they happen.</p>
+        <h3 class="service-title">Fotosesije i kreativni portreti</h3>
+        <p class="service-desc">Individualni ili grupni fotosuting, kreativni portreti i umetničke fotografije koje ističu karakter i stil.</p>
         <span class="service-arrow">↗</span>
       </div>
       <div class="service-card reveal">
         <div class="service-num">04</div>
-        <h3 class="service-title">Landscape & Architecture</h3>
-        <p class="service-desc">Spaces and environments rendered with geometric clarity. Interior, exterior, and environment photography for architects and designers.</p>
+        <h3 class="service-title">Automobili i specijalni objekti</h3>
+        <p class="service-desc">Slikanje automobila i drugih specijalnih predmeta sa pažnjom na detalje i estetiku.</p>
         <span class="service-arrow">↗</span>
       </div>
       <div class="service-card reveal">
         <div class="service-num">05</div>
-        <h3 class="service-title">Fine Art Prints</h3>
-        <p class="service-desc">Museum-quality archival prints available for collectors and spaces. Limited editions, signed and numbered.</p>
+        <h3 class="service-title">Događaji po dogovoru</h3>
+        <p class="service-desc">Pokrivam sve vrste privatnih i javnih događaja, zabeležene autentične i neinscenirane trenutke.</p>
         <span class="service-arrow">↗</span>
       </div>
       <div class="service-card reveal">
         <div class="service-num">06</div>
-        <h3 class="service-title">Creative Direction</h3>
-        <p class="service-desc">Beyond the shutter — concept development, art direction, and visual storytelling strategy for campaigns and long-form projects.</p>
+        <h3 class="service-title">Personalizovane fotografije po želji</h3>
+        <p class="service-desc">Svaki projekat je jedinstven i prilagođen vašim željama — od ideje do realizacije, sa fokusom na kvalitet i trajnost sećanja.</p>
         <span class="service-arrow">↗</span>
       </div>
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
+  <div class="divider"></div>
+
   <section class="portfolio" id="work">
     <div class="portfolio-header reveal">
-      <h2>Selected Work</h2>
-      <div class="section-label">Scroll to explore →</div>
+      <h2>Moj Rad</h2>
+      <div class="section-label">PORTFOLIO</div>
     </div>
-    <div class="portfolio-strip">
-      <div class="portfolio-item">
+
+    <div class="portfolio-grid" id="portfolioGrid">
+      <div class="portfolio-item" data-index="0">
+        <img src="images/IMG_0017.jpg" alt="Maturska fotografija" class="lightbox-trigger">
         <div class="portfolio-item-label">
-          <span class="portfolio-cat">Portrait</span>
+          <span class="portfolio-cat">Maturska fotografija</span>
+          <span class="portfolio-cat">2025</span>
+        </div>
+      </div>
+      <div class="portfolio-item" data-index="1">
+        <img src="images/IMG_9755.jpg" alt="Maturska fotografija" class="lightbox-trigger">
+        <div class="portfolio-item-label">
+          <span class="portfolio-cat">Maturska fotografija</span>
+          <span class="portfolio-cat">2025</span>
+        </div>
+      </div>
+      <div class="portfolio-item" data-index="2">
+        <img src="images/IMG_9749.jpg" alt="Maturska fotografija" class="lightbox-trigger">
+        <div class="portfolio-item-label">
+          <span class="portfolio-cat">Maturska fotografija</span>
+          <span class="portfolio-cat">2025</span>
+        </div>
+      </div>
+      <div class="portfolio-item" data-index="3">
+        <img src="images/IMG_9775.jpg" alt="Maturska fotografija" class="lightbox-trigger">
+        <div class="portfolio-item-label">
+          <span class="portfolio-cat">Maturska fotografija</span>
+          <span class="portfolio-cat">2025</span>
+        </div>
+      </div>
+      <div class="portfolio-item" data-index="4">
+        <img src="images/IMG_9796.jpg" alt="Maturska fotografija" class="lightbox-trigger">
+        <div class="portfolio-item-label">
+          <span class="portfolio-cat">Maturska fotografija</span>
+          <span class="portfolio-cat">2025</span>
+        </div>
+      </div>
+      <div class="portfolio-item" data-index="5">
+        <img src="images/IMG_9934.jpg" alt="Maturska fotografija" class="lightbox-trigger">
+        <div class="portfolio-item-label">
+          <span class="portfolio-cat">Maturska fotografija</span>
+          <span class="portfolio-cat">2025</span>
+        </div>
+      </div>
+      <div class="portfolio-item" data-index="6">
+        <img src="images/IMG_7734.jpg" alt="Portret" class="lightbox-trigger">
+        <div class="portfolio-item-label">
+          <span class="portfolio-cat">Portret</span>
           <span class="portfolio-cat">2024</span>
         </div>
       </div>
-      <div class="portfolio-item">
+      <div class="portfolio-item" data-index="7">
+        <img src="images/IMG_7761.jpg" alt="Portret" class="lightbox-trigger">
         <div class="portfolio-item-label">
-          <span class="portfolio-cat">Editorial</span>
+          <span class="portfolio-cat">Portret</span>
           <span class="portfolio-cat">2024</span>
         </div>
       </div>
-      <div class="portfolio-item">
+      <div class="portfolio-item" data-index="8">
+        <img src="images/IMG_8045.jpg" alt="Portret" class="lightbox-trigger">
         <div class="portfolio-item-label">
-          <span class="portfolio-cat">Commercial</span>
-          <span class="portfolio-cat">2023</span>
-        </div>
-      </div>
-      <div class="portfolio-item">
-        <div class="portfolio-item-label">
-          <span class="portfolio-cat">Documentary</span>
-          <span class="portfolio-cat">2023</span>
-        </div>
-      </div>
-      <div class="portfolio-item">
-        <div class="portfolio-item-label">
-          <span class="portfolio-cat">Landscape</span>
+          <span class="portfolio-cat">Portret</span>
           <span class="portfolio-cat">2024</span>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="divider"></div>
-
-  <!-- APPROACH -->
-  <section class="approach">
-    <div class="approach-left reveal">
-      <h2>Approach & <em>Expertise</em></h2>
-      <p>Every image begins before the shutter fires — in observation, in patience, in understanding what a moment is trying to say before it says it.</p>
-    </div>
-    <div class="approach-right">
-      <ul class="skills-list">
-        <li class="skill-item reveal">
-          <span class="skill-name">Film & Digital</span>
-          <div style="display:flex;align-items:center;gap:1rem">
-            <span class="skill-level">Expert</span>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="0.95"></div></div>
-          </div>
-        </li>
-        <li class="skill-item reveal">
-          <span class="skill-name">Post-Processing</span>
-          <div style="display:flex;align-items:center;gap:1rem">
-            <span class="skill-level">Expert</span>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="0.9"></div></div>
-          </div>
-        </li>
-        <li class="skill-item reveal">
-          <span class="skill-name">Lighting Design</span>
-          <div style="display:flex;align-items:center;gap:1rem">
-            <span class="skill-level">Advanced</span>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="0.88"></div></div>
-          </div>
-        </li>
-        <li class="skill-item reveal">
-          <span class="skill-name">Art Direction</span>
-          <div style="display:flex;align-items:center;gap:1rem">
-            <span class="skill-level">Advanced</span>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="0.82"></div></div>
-          </div>
-        </li>
-        <li class="skill-item reveal">
-          <span class="skill-name">Video & Motion</span>
-          <div style="display:flex;align-items:center;gap:1rem">
-            <span class="skill-level">Proficient</span>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="0.72"></div></div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </section>
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <span class="lightbox-nav lightbox-prev" id="lightboxPrev">← PREV</span>
+    <img class="lightbox-content" id="lightboxImg" src="" alt="">
+    <span class="lightbox-nav lightbox-next" id="lightboxNext">NEXT →</span>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
 
   <div class="divider"></div>
 
-  <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="contact-left">
-      <h2 class="reveal">Let's <em>work</em> together.</h2>
+      <h2 class="reveal"><em>Kontakt</em> informacije.</h2>
       <div class="contact-detail reveal">
         <div class="contact-detail-label">Email</div>
-        <div class="contact-detail-value">hello@capturedbyjlan.com</div>
+        <div class="contact-detail-value"><a href="mailto:capturedbyjlan@gmail.com">capturedbyjlan@gmail.com</a></div>
       </div>
       <div class="contact-detail reveal">
-        <div class="contact-detail-label">Phone</div>
-        <div class="contact-detail-value">+382 00 000 000</div>
+        <div class="contact-detail-label">Telefon</div>
+        <div class="contact-detail-value"><a href="tel:+38269617402">+382 69 617 402</a></div>
       </div>
       <div class="contact-detail reveal">
-        <div class="contact-detail-label">Based in</div>
-        <div class="contact-detail-value">Podgorica, Montenegro</div>
+        <div class="contact-detail-label">Lokacija</div>
+        <div class="contact-detail-value">Podgorica, Rožaje</div>
       </div>
       <div class="contact-detail reveal">
         <div class="contact-detail-label">Instagram</div>
-        <div class="contact-detail-value">@capturedbyjlan</div>
+        <div class="contact-detail-value"><a href="https://www.instagram.com/capturedbyjlan" target="_blank">@capturedbyjlan</a></div>
       </div>
     </div>
-    <div class="contact-form reveal">
-      <div class="form-field">
-        <label>Your Name</label>
-        <input type="text" placeholder="Full name" />
-      </div>
-      <div class="form-field">
-        <label>Email</label>
-        <input type="email" placeholder="your@email.com" />
-      </div>
-      <div class="form-field">
-        <label>Project Type</label>
-        <input type="text" placeholder="Portrait, Commercial, Event..." />
-      </div>
-      <div class="form-field">
-        <label>Message</label>
-        <textarea placeholder="Tell me about your vision..."></textarea>
-      </div>
-      <div class="form-field" style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0;">
-        <button class="submit-btn" onclick="handleSubmit()">Send Inquiry</button>
-      </div>
+    <div class="contact-right reveal">
+      <p class="contact-cta">
+        Svaki poseban trenutak zaslužuje da bude ovjekovječen. Obratite se za rezervaciju termina ili pitanja o uslugama.
+      </p>
+      <a href="https://www.instagram.com/capturedbyjlan" class="cta-link">
+        Rezervišite termin ↗
+      </a>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-logo">Captured by Jlan</div>
     <div class="footer-copy">© 2025 All rights reserved</div>
     <div class="footer-social">
-      <a href="#">Instagram</a>
-      <a href="#">Behance</a>
-      <a href="#">LinkedIn</a>
+      <a href="https://www.instagram.com/capturedbyjlan" target="_blank">Instagram</a>
     </div>
   </footer>
 
   <script>
-    // Custom cursor
+    // --- CUSTOM CURSOR ---
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
 
     document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
+      mx = e.clientX;
+      my = e.clientY;
       cursor.style.left = mx + 'px';
       cursor.style.top = my + 'px';
     });
@@ -1045,7 +844,7 @@
     }
     animateRing();
 
-    document.querySelectorAll('a, button, .service-card, .portfolio-item').forEach(el => {
+    document.querySelectorAll('a, button, .service-card, .portfolio-item, .lightbox-close, .lightbox-nav').forEach(el => {
       el.addEventListener('mouseenter', () => {
         cursor.classList.add('hover');
         ring.classList.add('hover');
@@ -1056,52 +855,74 @@
       });
     });
 
-    // Scroll reveal
+    // --- SCROLL REVEAL ---
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-
-          // Skill bars
-          const bar = entry.target.querySelector('.skill-bar-fill');
-          if (bar) {
-            setTimeout(() => {
-              bar.style.transform = `scaleX(${bar.dataset.width})`;
-              bar.classList.add('visible');
-            }, 200);
-          }
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Skill bars also observed separately
-    document.querySelectorAll('.skill-item').forEach(el => {
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            const bar = e.target.querySelector('.skill-bar-fill');
-            if (bar) {
-              setTimeout(() => {
-                bar.style.transform = `scaleX(${bar.dataset.width})`;
-              }, 300);
-            }
-          }
-        });
-      }, { threshold: 0.5 });
-      io.observe(el);
+    // --- LIGHTBOX ---
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const lightboxCounter = document.getElementById('lightboxCounter');
+
+    const images = Array.from(document.querySelectorAll('.lightbox-trigger'));
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      lightboxImg.src = images[currentIndex].src;
+      lightboxImg.alt = images[currentIndex].alt;
+      lightboxCounter.textContent = (currentIndex + 1) + ' / ' + images.length;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      lightboxImg.src = images[currentIndex].src;
+      lightboxImg.alt = images[currentIndex].alt;
+      lightboxCounter.textContent = (currentIndex + 1) + ' / ' + images.length;
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      lightboxImg.src = images[currentIndex].src;
+      lightboxImg.alt = images[currentIndex].alt;
+      lightboxCounter.textContent = (currentIndex + 1) + ' / ' + images.length;
+    }
+
+    images.forEach((img, i) => {
+      img.addEventListener('click', () => openLightbox(i));
     });
 
-    // Form submit
-    function handleSubmit() {
-      const btn = document.querySelector('.submit-btn');
-      btn.textContent = 'Sent ✓';
-      btn.style.background = 'transparent';
-      btn.style.color = 'var(--white)';
-      btn.style.boxShadow = 'inset 0 0 0 1px var(--white)';
-      btn.disabled = true;
-    }
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', prevImage);
+    lightboxNext.addEventListener('click', nextImage);
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'ArrowRight') nextImage();
+    });
   </script>
 </body>
 </html>
