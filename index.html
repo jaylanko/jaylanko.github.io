@@ -167,61 +167,93 @@
       animation: fadeIn 1s ease forwards 1.4s;
     }
 
+    /* HERO RIGHT — camera section */
     .hero-right {
       position: relative;
       overflow: hidden;
+      background: #0d0d0d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .hero-image-placeholder {
+    .camera-wrap {
       width: 100%;
-      height: 100%;
-      background: var(--grey);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-image-placeholder::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 30%, #1a1a1a 50%, #222 70%, #0f0f0f 100%);
-    }
-
-    .hero-image-art {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      max-width: 520px;
+      padding: 2rem;
       opacity: 0;
-      animation: fadeIn 2s ease forwards 1.5s;
+      animation: fadeIn 1.6s ease forwards 1.2s;
     }
 
-    .lens-circle {
-      width: 200px; height: 200px;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 50%;
-      position: absolute;
-      animation: rotateSlow 20s linear infinite;
+    /* ── CAMERA ANIMATIONS ── */
+
+    /* Focus ring slow rotation */
+    @keyframes rotateFocusRing {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
     }
-    .lens-circle:nth-child(2) {
-      width: 140px; height: 140px;
-      border-color: rgba(255,255,255,0.12);
-      animation-direction: reverse;
-      animation-duration: 14s;
+    #focus-ring-group {
+      transform-origin: 340px 335px;
+      animation: rotateFocusRing 28s linear infinite;
     }
-    .lens-circle:nth-child(3) {
-      width: 80px; height: 80px;
-      border-color: rgba(255,255,255,0.2);
+
+    /* Lens flare sweep */
+    @keyframes lensFlare {
+      0%   { opacity: 0; transform-origin: 316px 313px; transform: scale(0.4) rotate(-30deg); }
+      15%  { opacity: 1; }
+      60%  { opacity: 0.7; }
+      100% { opacity: 0; transform: scale(2.2) rotate(20deg); }
     }
-    .lens-dot {
-      width: 6px; height: 6px;
-      background: rgba(255,255,255,0.3);
-      border-radius: 50%;
+    @keyframes lensFlareDelay {
+      0%, 40% { opacity: 0; }
+      55%  { opacity: 0.5; }
+      80%  { opacity: 0.15; }
+      100% { opacity: 0; }
     }
+
+    #lens-flare-main {
+      animation: lensFlare 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      animation-delay: 1.8s;
+    }
+    #lens-flare-secondary {
+      animation: lensFlareDelay 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      animation-delay: 1.8s;
+    }
+    #lens-flare-streak {
+      animation: lensFlareDelay 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      animation-delay: 2s;
+    }
+
+    /* Specular dot pulse */
+    @keyframes specPulse {
+      0%, 100% { opacity: 0.15; r: 1.5; }
+      50%       { opacity: 0.9;  r: 2.5; }
+    }
+    #spec-dot {
+      animation: specPulse 4.5s ease-in-out infinite;
+      animation-delay: 1.8s;
+    }
+
+    /* Aperture ring subtle breathe */
+    @keyframes aperturePulse {
+      0%, 100% { opacity: 0.6; }
+      50%       { opacity: 1; }
+    }
+    #aperture-ring { animation: aperturePulse 4.5s ease-in-out infinite; animation-delay: 1.8s; }
+
+    /* Red dot blink */
+    @keyframes redBlink {
+      0%, 85%, 100% { opacity: 0.8; }
+      90%            { opacity: 0.2; }
+    }
+    #shutter-red { animation: redBlink 5s ease-in-out infinite; animation-delay: 2s; }
+
+    /* VF indicator glow */
+    @keyframes vfGlow {
+      0%, 100% { opacity: 0.15; }
+      50%       { opacity: 0.45; }
+    }
+    #vf-glow { animation: vfGlow 3.5s ease-in-out infinite; animation-delay: 0.5s; }
 
     /* DIVIDER */
     .divider {
@@ -232,9 +264,7 @@
     }
 
     /* SERVICES */
-    .services {
-      padding: 6rem 3rem;
-    }
+    .services { padding: 6rem 3rem; }
 
     .services-header {
       display: flex;
@@ -301,19 +331,14 @@
 
     .service-arrow {
       position: absolute;
-      bottom: 2.5rem;
-      right: 2.5rem;
+      bottom: 2.5rem; right: 2.5rem;
       font-size: 1.2rem;
       color: var(--mid);
       opacity: 0;
       transform: translate(-4px, 4px);
       transition: opacity 0.3s, transform 0.3s;
     }
-
-    .service-card:hover .service-arrow {
-      opacity: 1;
-      transform: translate(0, 0);
-    }
+    .service-card:hover .service-arrow { opacity: 1; transform: translate(0,0); }
 
     /* PORTFOLIO */
     .portfolio { padding: 6rem 0; }
@@ -348,20 +373,16 @@
     }
 
     .portfolio-item img {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       object-fit: cover;
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
       display: block;
     }
-
     .portfolio-item:hover img { transform: scale(1.06); }
 
     .portfolio-item-label {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      bottom: 0; left: 0; right: 0;
       padding: 3rem 1.5rem 1.2rem;
       background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
       display: flex;
@@ -370,7 +391,6 @@
       opacity: 0;
       transition: opacity 0.4s;
     }
-
     .portfolio-item:hover .portfolio-item-label { opacity: 1; }
 
     .portfolio-cat {
@@ -392,20 +412,17 @@
       justify-content: center;
       padding: 2rem;
     }
-
     .lightbox.active { display: flex; }
 
     .lightbox-content {
-      max-width: 90vw;
-      max-height: 90vh;
+      max-width: 90vw; max-height: 90vh;
       object-fit: contain;
       border: 1px solid rgba(255,255,255,0.08);
     }
 
     .lightbox-close {
       position: absolute;
-      top: 2rem;
-      right: 2.5rem;
+      top: 2rem; right: 2.5rem;
       font-size: 2rem;
       color: var(--mid);
       cursor: none;
@@ -416,8 +433,7 @@
 
     .lightbox-nav {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 50%; transform: translateY(-50%);
       font-family: 'Space Mono', monospace;
       font-size: 0.7rem;
       letter-spacing: 0.2em;
@@ -432,9 +448,7 @@
 
     .lightbox-counter {
       position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: 2rem; left: 50%; transform: translateX(-50%);
       font-family: 'Space Mono', monospace;
       font-size: 0.55rem;
       letter-spacing: 0.3em;
@@ -457,12 +471,9 @@
       letter-spacing: -0.02em;
       margin-bottom: 3rem;
     }
-
     .contact-left h2 em { font-style: italic; }
 
-    .contact-detail {
-      margin-bottom: 2.5rem;
-    }
+    .contact-detail { margin-bottom: 2.5rem; }
 
     .contact-detail-label {
       font-family: 'Space Mono', monospace;
@@ -478,15 +489,9 @@
       font-weight: 300;
       color: var(--white);
     }
-
-    .contact-detail-value a {
-      color: var(--white);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
+    .contact-detail-value a { color: var(--white); text-decoration: none; transition: color 0.3s; }
     .contact-detail-value a:hover { color: var(--light); }
 
-    /* CONTACT RIGHT - CTA */
     .contact-right {
       display: flex;
       flex-direction: column;
@@ -516,10 +521,7 @@
       border: 1px solid rgba(255,255,255,0.2);
       transition: background 0.3s, border-color 0.3s;
     }
-    .cta-link:hover {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.5);
-    }
+    .cta-link:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.5); }
 
     /* FOOTER */
     footer {
@@ -545,11 +547,7 @@
       color: var(--mid);
     }
 
-    .footer-social {
-      display: flex;
-      gap: 2rem;
-    }
-
+    .footer-social { display: flex; gap: 2rem; }
     .footer-social a {
       font-family: 'Space Mono', monospace;
       font-size: 0.55rem;
@@ -562,22 +560,9 @@
     .footer-social a:hover { color: var(--white); }
 
     /* ANIMATIONS */
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideReveal {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes rotateSlow {
-      to { transform: rotate(360deg); }
-    }
+    @keyframes fadeIn    { to { opacity: 1; } }
+    @keyframes slideUp   { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes slideReveal { to { opacity:1; transform:translateY(0); } }
 
     /* SCROLL REVEAL */
     .reveal {
@@ -585,10 +570,7 @@
       transform: translateY(30px);
       transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
@@ -598,7 +580,7 @@
       .nav-links { gap: 1.5rem; }
       .hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-left { padding: 7rem 1.5rem 3rem; }
-      .hero-right { height: 60vw; }
+      .hero-right { height: 80vw; }
       .services { padding: 5rem 1.5rem; }
       .services-grid { grid-template-columns: 1fr; }
       .portfolio-header { padding: 0 1.5rem; }
@@ -607,7 +589,6 @@
       footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
       .divider { margin: 0 1.5rem; }
     }
-
     @media (max-width: 500px) {
       .portfolio-grid { grid-template-columns: 1fr; }
     }
@@ -639,16 +620,270 @@
         Između svjetla i sjene nastaju priče. Fotografije za ljude koji osjećaju da svaki kadar krije nešto dublje.
       </p>
     </div>
+
+    <!-- ═══════════════════════════════════════════
+         HERO RIGHT — Animated Camera SVG
+    ════════════════════════════════════════════════ -->
     <div class="hero-right">
-      <div class="hero-image-placeholder">
-        <div class="hero-image-art">
-          <div class="lens-circle"></div>
-          <div class="lens-circle"></div>
-          <div class="lens-circle"></div>
-          <div class="lens-dot"></div>
-        </div>
+      <div class="camera-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 680" width="100%" role="img" aria-label="Fotoaparat ilustracija">
+
+          <defs>
+            <!-- Lens gradients -->
+            <radialGradient id="lensGrad" cx="46%" cy="44%" r="50%">
+              <stop offset="0%"   stop-color="#2a2a2a"/>
+              <stop offset="35%"  stop-color="#111"/>
+              <stop offset="70%"  stop-color="#1c1c1c"/>
+              <stop offset="100%" stop-color="#0a0a0a"/>
+            </radialGradient>
+            <radialGradient id="lensShine" cx="35%" cy="32%" r="45%">
+              <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.12"/>
+              <stop offset="60%"  stop-color="#ffffff" stop-opacity="0.03"/>
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="innerLens" cx="52%" cy="48%" r="50%">
+              <stop offset="0%"   stop-color="#1a1f2e"/>
+              <stop offset="40%"  stop-color="#0d1018"/>
+              <stop offset="100%" stop-color="#050508"/>
+            </radialGradient>
+            <radialGradient id="innerShine" cx="38%" cy="35%" r="50%">
+              <stop offset="0%"   stop-color="#4a6fa5" stop-opacity="0.35"/>
+              <stop offset="50%"  stop-color="#2a4a75" stop-opacity="0.1"/>
+              <stop offset="100%" stop-color="#1a2a45" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="coreGrad" cx="50%" cy="45%" r="50%">
+              <stop offset="0%"   stop-color="#0f1520"/>
+              <stop offset="100%" stop-color="#03050a"/>
+            </radialGradient>
+            <!-- Lens flare gradient -->
+            <radialGradient id="flareGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.9"/>
+              <stop offset="30%"  stop-color="#c8deff" stop-opacity="0.5"/>
+              <stop offset="70%"  stop-color="#7ab0ff" stop-opacity="0.15"/>
+              <stop offset="100%" stop-color="#4a80ff" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="flareGrad2" cx="50%" cy="50%" r="50%">
+              <stop offset="0%"   stop-color="#fffbe8" stop-opacity="0.7"/>
+              <stop offset="50%"  stop-color="#ffd580" stop-opacity="0.2"/>
+              <stop offset="100%" stop-color="#ffaa00" stop-opacity="0"/>
+            </radialGradient>
+            <!-- Body gradients -->
+            <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="#1e1e1e"/>
+              <stop offset="40%"  stop-color="#181818"/>
+              <stop offset="100%" stop-color="#111"/>
+            </linearGradient>
+            <linearGradient id="topGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="#2a2a2a"/>
+              <stop offset="100%" stop-color="#1a1a1a"/>
+            </linearGradient>
+            <!-- Clip for inner lens flare -->
+            <clipPath id="lensClip">
+              <circle cx="340" cy="335" r="52"/>
+            </clipPath>
+          </defs>
+
+          <!-- ── BODY SHADOW ── -->
+          <ellipse cx="340" cy="445" rx="205" ry="12" fill="#000" opacity="0.35"/>
+
+          <!-- ── MAIN BODY ── -->
+          <rect x="110" y="230" width="460" height="195" rx="14" fill="url(#bodyGrad)"/>
+          <rect x="110" y="230" width="460" height="3"   rx="1.5" fill="#fff" opacity="0.06"/>
+          <rect x="110" y="421" width="460" height="2"   rx="1"   fill="#000" opacity="0.4"/>
+
+          <!-- ── TOP PLATE ── -->
+          <rect x="118" y="208" width="444" height="26" rx="10" fill="url(#topGrad)"/>
+          <rect x="118" y="208" width="444" height="2"  rx="1"  fill="#fff" opacity="0.08"/>
+
+          <!-- ── GRIP ── -->
+          <rect x="110" y="230" width="52" height="195" fill="#161616"/>
+          <line x1="120" y1="235" x2="120" y2="420" stroke="#0d0d0d" stroke-width="2.5"/>
+          <line x1="126" y1="235" x2="126" y2="420" stroke="#0d0d0d" stroke-width="1.5"/>
+          <line x1="131" y1="235" x2="131" y2="420" stroke="#0d0d0d" stroke-width="2"/>
+          <line x1="136" y1="235" x2="136" y2="420" stroke="#0d0d0d" stroke-width="1.5"/>
+          <line x1="141" y1="235" x2="141" y2="420" stroke="#0d0d0d" stroke-width="2"/>
+          <line x1="146" y1="235" x2="146" y2="420" stroke="#0d0d0d" stroke-width="1.5"/>
+          <line x1="151" y1="235" x2="151" y2="420" stroke="#0d0d0d" stroke-width="2"/>
+          <rect x="110" y="230" width="2" height="195" fill="#fff" opacity="0.04"/>
+
+          <!-- ── RIGHT SIDE ── -->
+          <rect x="518" y="230" width="52" height="195" fill="#171717"/>
+          <rect x="568" y="230" width="2"  height="195" fill="#000" opacity="0.5"/>
+
+          <!-- ════════════════════════════
+               LENS ASSEMBLY
+          ════════════════════════════ -->
+
+          <!-- Mount ring -->
+          <circle cx="340" cy="335" r="128" fill="#0e0e0e" stroke="#2a2a2a" stroke-width="1"/>
+
+          <!-- Outer barrel -->
+          <circle cx="340" cy="335" r="123" fill="#161616"/>
+
+          <!-- Tick marks on barrel -->
+          <g stroke="#3a3a3a" stroke-width="0.8" opacity="0.7">
+            <line x1="340" y1="213" x2="340" y2="222"/>
+            <line x1="385" y1="218" x2="381" y2="227"/>
+            <line x1="424" y1="234" x2="418" y2="241"/>
+            <line x1="451" y1="262" x2="444" y2="267"/>
+            <line x1="463" y1="301" x2="455" y2="302"/>
+            <line x1="295" y1="218" x2="299" y2="227"/>
+            <line x1="256" y1="234" x2="262" y2="241"/>
+            <line x1="229" y1="262" x2="236" y2="267"/>
+            <line x1="217" y1="301" x2="225" y2="302"/>
+          </g>
+
+          <!-- ── ANIMATED FOCUS RING ── -->
+          <g id="focus-ring-group">
+            <circle cx="340" cy="335" r="116" fill="#1a1a1a" stroke="#252525" stroke-width="0.5"/>
+            <g fill="#222" stroke="#2d2d2d" stroke-width="0.3">
+              <rect x="334" y="220" width="12" height="6" rx="2" transform="rotate(0,340,335)"/>
+              <rect x="334" y="220" width="12" height="6" rx="2" transform="rotate(22,340,335)"/>
+              <rect x="334" y="220" width="12" height="6" rx="2" transform="rotate(44,340,335)"/>
+              <rect x="334" y="220" width="12" height="6" rx="2" transform="rotate(66,340,335)"/>
+              <rect x="334" y="220" width="12" height="6" rx="2" transform="rotate(88,340,335)"/>
+              <rect x="334" y="220" width="12" height="6" rx="2" transform="rotate(110,340,335)"/>
+              <rect x="334" y="220" width="12" height="6" rx="2" transform="rotate(132,340,335)"/>
+              <rect x="334" y="220" width="12" height="6" rx="2" transform="rotate(154,340,335)"/>
+              <rect x="334" y="220" width="12" height="6" rx="2" transform="rotate(176,340,335)"/>
+              <rect x="334" y="220" width="12" height="6" rx="2" transform="rotate(198,340,335)"/>
+              <rect x="334" y="220" width="12" height="6" rx="2" transform="rotate(220,340,335)"/>
+              <rect x="334" y="220" width="12" height="6" rx="2" transform="rotate(242,340,335)"/>
+              <rect x="334" y="220" width="12" height="6" rx="2" transform="rotate(264,340,335)"/>
+              <rect x="334" y="220" width="12" height="6" rx="2" transform="rotate(286,340,335)"/>
+              <rect x="334" y="220" width="12" height="6" rx="2" transform="rotate(308,340,335)"/>
+              <rect x="334" y="220" width="12" height="6" rx="2" transform="rotate(330,340,335)"/>
+            </g>
+          </g>
+
+          <!-- Aperture ring separator -->
+          <circle id="aperture-ring" cx="340" cy="335" r="104" fill="#111" stroke="#222" stroke-width="0.5"/>
+
+          <!-- Outer lens element -->
+          <circle cx="340" cy="335" r="96" fill="url(#lensGrad)"/>
+          <circle cx="340" cy="335" r="96" fill="none" stroke="#333" stroke-width="1" opacity="0.6"/>
+          <circle cx="340" cy="335" r="96" fill="url(#lensShine)"/>
+
+          <!-- Mid ring -->
+          <circle cx="340" cy="335" r="82" fill="#0c0c0c" stroke="#1f1f1f" stroke-width="0.8"/>
+
+          <!-- Inner lens element -->
+          <circle cx="340" cy="335" r="74" fill="url(#innerLens)"/>
+          <circle cx="340" cy="335" r="74" fill="url(#innerShine)"/>
+
+          <!-- Inner aperture ring -->
+          <circle cx="340" cy="335" r="60" fill="#080a10" stroke="#181d28" stroke-width="0.5"/>
+
+          <!-- Core glass -->
+          <circle cx="340" cy="335" r="52" fill="url(#coreGrad)"/>
+
+          <!-- Lens coating reflections (static) -->
+          <ellipse cx="322" cy="318" rx="10" ry="5" fill="none" stroke="#4a6fa5"
+                   stroke-width="0.7" opacity="0.3" transform="rotate(-20,322,318)"/>
+          <ellipse cx="318" cy="315" rx="6" ry="3"  fill="none" stroke="#5a80b5"
+                   stroke-width="0.5" opacity="0.2" transform="rotate(-20,318,315)"/>
+
+          <!-- ════════════════════════════
+               LENS FLARE ANIMATIONS
+          ════════════════════════════ -->
+
+          <!-- Main flare bloom — clipped inside core glass -->
+          <g clip-path="url(#lensClip)">
+            <g id="lens-flare-main">
+              <circle cx="316" cy="314" r="28" fill="url(#flareGrad)" opacity="0.95"/>
+              <circle cx="316" cy="314" r="12" fill="#fff" opacity="0.4"/>
+              <circle cx="316" cy="314" r="5"  fill="#fff" opacity="0.9"/>
+            </g>
+          </g>
+
+          <!-- Secondary flare halo — slightly outside, softer -->
+          <g id="lens-flare-secondary">
+            <circle cx="316" cy="314" r="46" fill="url(#flareGrad2)" opacity="0.35"/>
+          </g>
+
+          <!-- Flare streak / anamorphic line -->
+          <g id="lens-flare-streak" opacity="0">
+            <line x1="230" y1="314" x2="410" y2="314"
+                  stroke="#c8deff" stroke-width="1.5" opacity="0.6"/>
+            <line x1="240" y1="316" x2="400" y2="316"
+                  stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+            <!-- Small secondary orbs along streak -->
+            <circle cx="275" cy="314" r="5"  fill="#c8deff" opacity="0.4"/>
+            <circle cx="260" cy="314" r="3"  fill="#ffffff" opacity="0.2"/>
+            <circle cx="390" cy="314" r="4"  fill="#ffd580" opacity="0.35"/>
+            <circle cx="405" cy="314" r="2"  fill="#ffffff" opacity="0.15"/>
+          </g>
+
+          <!-- Specular highlight dot (pulsing) -->
+          <circle id="spec-dot" cx="315" cy="313" r="1.5" fill="#fff" opacity="0.15"/>
+
+          <!-- ════════════════════════════
+               TOP CONTROLS
+          ════════════════════════════ -->
+
+          <!-- Mode dial -->
+          <circle cx="175" cy="208" r="22" fill="#1c1c1c" stroke="#2a2a2a" stroke-width="0.8"/>
+          <circle cx="175" cy="208" r="17" fill="#161616"/>
+          <text font-family="'Space Mono', monospace" font-size="6" fill="#4a4a4a" text-anchor="middle" x="175" y="196">A</text>
+          <text font-family="'Space Mono', monospace" font-size="6" fill="#4a4a4a" text-anchor="middle" x="187" y="212">S</text>
+          <text font-family="'Space Mono', monospace" font-size="6" fill="#4a4a4a" text-anchor="middle" x="175" y="223">M</text>
+          <text font-family="'Space Mono', monospace" font-size="6" fill="#777"    text-anchor="middle" x="164" y="212">P</text>
+          <line x1="175" y1="192" x2="175" y2="197" stroke="#aaa" stroke-width="1.2" opacity="0.5"/>
+
+          <!-- Shutter speed dial -->
+          <circle cx="505" cy="208" r="22" fill="#1c1c1c" stroke="#2a2a2a" stroke-width="0.8"/>
+          <circle cx="505" cy="208" r="17" fill="#161616"/>
+          <text font-family="'Space Mono', monospace" font-size="5.5" fill="#4a4a4a" text-anchor="middle" x="505" y="196">1/125</text>
+          <text font-family="'Space Mono', monospace" font-size="5.5" fill="#777"    text-anchor="middle" x="505" y="223">1/250</text>
+          <line x1="505" y1="192" x2="505" y2="197" stroke="#aaa" stroke-width="1.2" opacity="0.5"/>
+
+          <!-- Shutter release button -->
+          <circle cx="168" cy="228" r="9" fill="#1a1a1a" stroke="#333" stroke-width="0.8"/>
+          <circle cx="168" cy="228" r="5" fill="#222"/>
+          <circle id="shutter-red" cx="168" cy="228" r="2" fill="#c0392b" opacity="0.8"/>
+
+          <!-- Hot shoe -->
+          <rect x="285" y="205" width="110" height="8" rx="1" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="0.5"/>
+          <rect x="295" y="207" width="14" height="4" fill="#141414"/>
+          <rect x="316" y="207" width="14" height="4" fill="#141414"/>
+          <rect x="337" y="207" width="14" height="4" fill="#141414"/>
+          <rect x="358" y="207" width="14" height="4" fill="#141414"/>
+          <rect x="379" y="207" width="6"  height="4" fill="#141414"/>
+
+          <!-- ── VIEWFINDER ── -->
+          <rect x="455" y="237" width="62" height="42" rx="5" fill="#0d0d0d" stroke="#252525" stroke-width="0.8"/>
+          <rect id="vf-glow" x="459" y="241" width="54" height="34" rx="3" fill="#0a0e14"/>
+          <rect x="463" y="245" width="46" height="26" rx="1" fill="none" stroke="#1a2030" stroke-width="0.5"/>
+          <!-- VF corner brackets -->
+          <path d="M466 248 L470 248 L470 252" fill="none" stroke="#2a3a50" stroke-width="0.8"/>
+          <path d="M506 248 L502 248 L502 252" fill="none" stroke="#2a3a50" stroke-width="0.8"/>
+          <path d="M466 267 L470 267 L470 263" fill="none" stroke="#2a3a50" stroke-width="0.8"/>
+          <path d="M506 267 L502 267 L502 263" fill="none" stroke="#2a3a50" stroke-width="0.8"/>
+
+          <!-- ── RANGEFINDER WINDOW ── -->
+          <rect x="455" y="284" width="36" height="24" rx="4" fill="#0a0e18" stroke="#1e2030" stroke-width="0.8"/>
+          <ellipse cx="467" cy="292" rx="6" ry="4" fill="#1a2a45" opacity="0.4"/>
+
+          <!-- ── LOGO ON BODY ── -->
+          <text font-family="'Space Mono', monospace" font-size="10" fill="#3a3a3a" letter-spacing="3" x="162" y="360">CAPTURED</text>
+          <text font-family="'Space Mono', monospace" font-size="6"  fill="#2a2a2a" letter-spacing="5" x="174" y="373">BY JLAN</text>
+
+          <!-- ── BOTTOM DETAILS ── -->
+          <rect x="328" y="421" width="24" height="6" rx="2" fill="#141414" stroke="#222" stroke-width="0.5"/>
+          <rect x="334" y="423" width="12" height="3" rx="1" fill="#111"/>
+          <!-- Screws -->
+          <circle cx="145" cy="430" r="6" fill="#141414" stroke="#222" stroke-width="0.5"/>
+          <line x1="142" y1="430" x2="148" y2="430" stroke="#1a1a1a" stroke-width="1.2"/>
+          <line x1="145" y1="427" x2="145" y2="433" stroke="#1a1a1a" stroke-width="1.2"/>
+          <circle cx="535" cy="430" r="6" fill="#141414" stroke="#222" stroke-width="0.5"/>
+          <line x1="532" y1="430" x2="538" y2="430" stroke="#1a1a1a" stroke-width="1.2"/>
+          <line x1="535" y1="427" x2="535" y2="433" stroke="#1a1a1a" stroke-width="1.2"/>
+
+        </svg>
       </div>
     </div>
+    <!-- ═══════════════════════════════════════════ -->
+
   </section>
 
   <div class="divider"></div>
@@ -825,79 +1060,63 @@
   <script>
     // --- CUSTOM CURSOR ---
     const cursor = document.getElementById('cursor');
-    const ring = document.getElementById('cursorRing');
+    const ring   = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
 
     document.addEventListener('mousemove', e => {
-      mx = e.clientX;
-      my = e.clientY;
+      mx = e.clientX; my = e.clientY;
       cursor.style.left = mx + 'px';
-      cursor.style.top = my + 'px';
+      cursor.style.top  = my + 'px';
     });
 
-    function animateRing() {
+    (function animateRing() {
       rx += (mx - rx) * 0.12;
       ry += (my - ry) * 0.12;
       ring.style.left = rx + 'px';
-      ring.style.top = ry + 'px';
+      ring.style.top  = ry + 'px';
       requestAnimationFrame(animateRing);
-    }
-    animateRing();
+    })();
 
     document.querySelectorAll('a, button, .service-card, .portfolio-item, .lightbox-close, .lightbox-nav').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.classList.add('hover');
-        ring.classList.add('hover');
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.classList.remove('hover');
-        ring.classList.remove('hover');
-      });
+      el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); ring.classList.add('hover'); });
+      el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); ring.classList.remove('hover'); });
     });
 
     // --- SCROLL REVEAL ---
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.12 });
-
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     // --- LIGHTBOX ---
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const lightboxPrev = document.getElementById('lightboxPrev');
-    const lightboxNext = document.getElementById('lightboxNext');
+    const lightbox        = document.getElementById('lightbox');
+    const lightboxImg     = document.getElementById('lightboxImg');
+    const lightboxClose   = document.getElementById('lightboxClose');
+    const lightboxPrev    = document.getElementById('lightboxPrev');
+    const lightboxNext    = document.getElementById('lightboxNext');
     const lightboxCounter = document.getElementById('lightboxCounter');
 
     const images = Array.from(document.querySelectorAll('.lightbox-trigger'));
     let currentIndex = 0;
 
-    function openLightbox(index) {
-      currentIndex = index;
-      lightboxImg.src = images[currentIndex].src;
-      lightboxImg.alt = images[currentIndex].alt;
-      lightboxCounter.textContent = (currentIndex + 1) + ' / ' + images.length;
+    function openLightbox(i) {
+      currentIndex = i;
+      lightboxImg.src = images[i].src;
+      lightboxImg.alt = images[i].alt;
+      lightboxCounter.textContent = (i + 1) + ' / ' + images.length;
       lightbox.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
-
     function closeLightbox() {
       lightbox.classList.remove('active');
       document.body.style.overflow = '';
     }
-
     function prevImage() {
       currentIndex = (currentIndex - 1 + images.length) % images.length;
       lightboxImg.src = images[currentIndex].src;
       lightboxImg.alt = images[currentIndex].alt;
       lightboxCounter.textContent = (currentIndex + 1) + ' / ' + images.length;
     }
-
     function nextImage() {
       currentIndex = (currentIndex + 1) % images.length;
       lightboxImg.src = images[currentIndex].src;
@@ -905,23 +1124,16 @@
       lightboxCounter.textContent = (currentIndex + 1) + ' / ' + images.length;
     }
 
-    images.forEach((img, i) => {
-      img.addEventListener('click', () => openLightbox(i));
-    });
-
+    images.forEach((img, i) => img.addEventListener('click', () => openLightbox(i)));
     lightboxClose.addEventListener('click', closeLightbox);
     lightboxPrev.addEventListener('click', prevImage);
     lightboxNext.addEventListener('click', nextImage);
-
-    lightbox.addEventListener('click', e => {
-      if (e.target === lightbox) closeLightbox();
-    });
-
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
     document.addEventListener('keydown', e => {
       if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') prevImage();
-      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'Escape')      closeLightbox();
+      if (e.key === 'ArrowLeft')   prevImage();
+      if (e.key === 'ArrowRight')  nextImage();
     });
   </script>
 </body>
